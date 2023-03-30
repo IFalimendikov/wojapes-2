@@ -81,13 +81,13 @@ contract DumbWojapes2 is Ownable, ERC721A {
     uint256 numToMint = _numWojapeTokens * 4;
     uint256 numBatches = numToMint / 12;
 
-    require(totalSupply() + numToMint <= maxSupply - reserve, "Max supply reached!")
+    require(totalSupply() + numToMint <= maxSupply - reserve, "Max supply reached!");
 
     for (uint256 i; i < numBatches; ++i) {
-      _mint(to, 12, '', true);
+      _mint(_to, 12);
     }
     if (numToMint % 12 > 0) {
-      _mint(to, numToMint % 12, '', true);
+      _mint(_to, numToMint % 12);
     }
   }
 
@@ -101,7 +101,7 @@ contract DumbWojapes2 is Ownable, ERC721A {
     require(msg.sender == tx.origin, "contracts can't mint!");
     require(mintedWls[msg.sender] + _mintAmount <= mintsWl, "You already minted your WL!");
     require(msg.value == costWl * _mintAmount, "Not enough ETH to mint!");
-    require(MerkleProof.verify(_merkleProof, merkleRoot, keccak256(abi.encodePacked(msg.sender)), "Merkle verification failed!"));
+    require(MerkleProof.verify(_merkleProof, merkleRoot, keccak256(abi.encodePacked(msg.sender))), "Merkle verification failed!");
 
     mintedWls[msg.sender] += _mintAmount;
     _mint(msg.sender, _mintAmount);
