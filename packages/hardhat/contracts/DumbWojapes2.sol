@@ -70,7 +70,7 @@ contract DumbWojapes2 is Ownable, ERC721A {
         uint256 ownershipStart = uint256(tokenOwnership.startTimestamp);
         require(block.timestamp - ownershipStart >= minHoldTime, "Minimum hold time haven't passed!");
 
-        mintedHolderWl[wojapeId] = false;
+        wojapesClaimed[wojapeId] = false;
         }
 
     mintWrapper(msg.sender, _wojapesTokenIds.length);
