@@ -32,7 +32,7 @@ contract DumbWojapes2 is Ownable, ERC721A {
   bool public holderMintActive = false;
   bool public revealLive = false;
   // Keys are wojapes IDs
-  mapping(uint256 => bool) public mintedHolderWl;
+  mapping(uint256 => bool) public wojapesClaimed;
   mapping(address => uint256) public mintedWls;
 
   string public baseURI;
@@ -65,12 +65,12 @@ contract DumbWojapes2 is Ownable, ERC721A {
         address tokenOwner = tokenOwnership.addr;
 
         require(tokenOwner == msg.sender, "Can't confirm ownership!");
-        require(mintedHolderWl[wojapeId], "You already claimed your Wojapes!");
+        require(!wojapesClaimed[wojapeId], "You already claimed your Wojapes!");
 
         uint256 ownershipStart = uint256(tokenOwnership.startTimestamp);
         require(block.timestamp - ownershipStart >= minHoldTime, "Minimum hold time haven't passed!");
 
-        wojapesClaimed[wojapeId] = false;
+        wojapesClaimed[wojapeId] = true;
         }
 
     mintWrapper(msg.sender, _wojapesTokenIds.length);
