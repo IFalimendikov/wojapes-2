@@ -76,7 +76,7 @@ contract DumbWojapes2 is Ownable, ERC721A {
     mintWrapper(msg.sender, _wojapesTokenIds.length);
   }
 // Function to wrap mints, every Wojape ID will mint 4 Wojapes 2
-  function mintWrapper(address _to, uint256 _numWojapeTokens) internal {
+  function _mintForWojapes(address _to, uint256 _numWojapeTokens) internal {
     
     uint256 numToMint = _numWojapeTokens * 4;
     uint256 numBatches = numToMint / 12;
