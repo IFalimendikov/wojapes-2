@@ -96,7 +96,7 @@ contract DumbWojapes2 is Ownable, ERC721A {
     bytes32[] calldata _merkleProof,
     uint256 _mintAmount
   ) external payable {
-    require(wlMintActive == true, "WL mint is not live!");
+    require(wlMintActive, "WL mint is not live!");
     require(totalSupply() + _mintAmount <= maxSupply - reserve);
     require(msg.sender == tx.origin, "contracts can't mint!");
     require(mintedWls[msg.sender] + _mintAmount <= mintsWl, "You already minted your WL!");
