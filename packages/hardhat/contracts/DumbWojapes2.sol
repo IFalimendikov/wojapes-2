@@ -55,7 +55,7 @@ contract DumbWojapes2 is Ownable, ERC721A {
 
   // Wojapes holders mint funcion, sets mapping with Wojapes IDs to false for every minted ID and calls mint wrapper
   function mintHolders(uint256[] calldata _wojapesTokenIds) external {
-    require(holderMintActive == true, "Claiming is not live!");
+    require(holderMintActive, "Claiming is not live!");
     require(msg.sender == tx.origin, "Contracts can't mint!");
 
     for (uint256 i; i < _wojapesTokenIds.length; ++i) {
