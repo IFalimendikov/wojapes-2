@@ -23,7 +23,6 @@ contract DumbWojapes2 is Ownable, ERC721A {
   DumbWojapes public immutable wojapes;
   // State variables are not finalized and will be changed
   uint256 public constant maxSupply = 777;
-  uint256 public costWl = 0.01 ether;
   uint256 public mintsWl = 2;
   uint256 private reserve = 30;
   uint256 public minHoldTime = 60;
@@ -97,7 +96,6 @@ contract DumbWojapes2 is Ownable, ERC721A {
     require(totalSupply() + _mintAmount <= maxSupply - reserve);
     require(msg.sender == tx.origin, "contracts can't mint!");
     require(mintedWls[msg.sender] + _mintAmount <= mintsWl, "You already minted your WL!");
-    require(msg.value == costWl * _mintAmount, "Not enough ETH to mint!");
     require(MerkleProof.verify(_merkleProof, merkleRoot, keccak256(abi.encodePacked(msg.sender))), "Merkle verification failed!");
 
     mintedWls[msg.sender] += _mintAmount;
@@ -135,10 +133,6 @@ contract DumbWojapes2 is Ownable, ERC721A {
 
   function setBaseURI(string memory _baseURI) external onlyOwner {
     baseURI = _baseURI;
-  }
-
-  function setCostWl(uint256 _costWl) public onlyOwner {
-    costWl = _costWl;
   }
 
   function _baseURI() internal view virtual override returns (string memory) {
