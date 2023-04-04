@@ -30,13 +30,11 @@ contract DumbWojapes2 is Ownable, ERC721A {
   // Variables for starting/pausing mint stages
   bool public wlMintActive = false;
   bool public holderMintActive = false;
-  bool public revealLive = false;
   // Keys are wojapes IDs
   mapping(uint256 => bool) public wojapesClaimed;
   mapping(address => uint256) public mintedWls;
 
   string public baseURI;
-  string public hiddenURI;
 
   bytes32 public merkleRoot;
 
@@ -56,7 +54,6 @@ contract DumbWojapes2 is Ownable, ERC721A {
   // Wojapes holders mint funcion, sets mapping with Wojapes IDs to false for every minted ID and calls mint wrapper
   function mintHolders(uint256[] calldata _wojapesTokenIds) external {
     require(holderMintActive, "Claiming is not live!");
-    require(msg.sender == tx.origin, "Contracts can't mint!");
 
     for (uint256 i; i < _wojapesTokenIds.length; ++i) {
         uint256 wojapeId = _wojapesTokenIds[i];
@@ -107,13 +104,8 @@ contract DumbWojapes2 is Ownable, ERC721A {
     _mint(msg.sender, _mintAmount);
   }
 
-  // Function returns hidden URI if `revealLive` is false and real URI if true
   function tokenURI(uint256 _tokenId) public view virtual override returns (string memory) {
     require(_exists(_tokenId), "ERC721Metadata: URI query for nonexistent token");
-
-    if (revealLive == false) {
-      return hiddenURI;
-    }
 
     string memory currentBaseURI = _baseURI();
     return
@@ -135,10 +127,6 @@ contract DumbWojapes2 is Ownable, ERC721A {
 
   function setHolderMintActive(bool _holderMintActive) external onlyOwner {
     holderMintActive = _holderMintActive;
-  }
-
-  function setReveal() public onlyOwner {
-    revealLive = true;
   }
 
   function setHiddenURI(string memory _hiddenURI) external onlyOwner {
