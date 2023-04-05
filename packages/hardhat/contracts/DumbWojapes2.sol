@@ -24,6 +24,7 @@ contract DumbWojapes2 is Ownable, ERC721A {
   // State variables are not finalized and will be changed
   uint256 public constant maxSupply = 777;
   uint256 public mintsWl = 2;
+  uint256 public claimPerWojape = 4;
   uint256 private reserve = 30;
   uint256 public minHoldTime = 60;
   // Variables for starting/pausing mint stages
@@ -74,7 +75,7 @@ contract DumbWojapes2 is Ownable, ERC721A {
 // Function to wrap mints, every Wojape ID will mint 4 Wojapes 2
   function _mintForWojapes(address _to, uint256 _numWojapeTokens) internal {
     
-    uint256 numToMint = _numWojapeTokens * 4;
+    uint256 numToMint = _numWojapeTokens * claimPerWojape;
     uint256 numBatches = numToMint / 12;
 
     require(totalSupply() + numToMint <= maxSupply - reserve, "Max supply reached!");
