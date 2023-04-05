@@ -70,7 +70,7 @@ contract DumbWojapes2 is Ownable, ERC721A {
         wojapesClaimed[wojapeId] = true;
         }
 
-    mintWrapper(msg.sender, _wojapesTokenIds.length);
+    _mintForWojapes(msg.sender, _wojapesTokenIds.length);
   }
 // Function to wrap mints, every Wojape ID will mint 4 Wojapes 2
   function _mintForWojapes(address _to, uint256 _numWojapeTokens) internal {
@@ -126,10 +126,6 @@ contract DumbWojapes2 is Ownable, ERC721A {
 
   function setHolderMintActive(bool _holderMintActive) external onlyOwner {
     holderMintActive = _holderMintActive;
-  }
-
-  function setHiddenURI(string memory _hiddenURI) external onlyOwner {
-    hiddenURI = _hiddenURI;
   }
 
   function setBaseURI(string memory _baseURI) external onlyOwner {
