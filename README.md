@@ -10,4 +10,4 @@ Contains smart contract with two mint functions, one for the existing Wojape 1 h
 
 <h2> Frontend (In dapp folder). </h2>
 
-Contains basic functionality for frontend and design. DApp automatically parses wojapes 1 ID's through wagmi hocks during the holders mint, so no additional actions are required from the minter. During the WL mint DApp automatically rebuilds Merkle Tree with the minters proof to confirm WL membership. DApp uses Rainbow wallet plugin and automatically displays UI elements depending on the phase of the mint, which it checks with wagmi hooks.
+Contains basic functionality for frontend and design. DApp automatically parses wojapes 1 ID's through wagmi hooks during the holders mint, so no additional actions are required from the minter. During the WL mint DApp automatically rebuilds Merkle Tree with the minters proof to confirm WL membership. DApp uses Rainbow wallet plugin and automatically displays UI elements depending on the phase of the mint, which it checks with wagmi hooks.
