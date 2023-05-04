@@ -272,7 +272,7 @@ export default function Home() {
           <span class="text-sm border-gray-200 text-gray-500 sm:text-center dark:text-gray-400">
             © 2023{" "}
             <a href="https://uwulabs.com/" class="hover:underline">
-              uwuLabs™
+              BofaLabs™
             </a>
             . Made by{" "}
             <a href="https://twitter.com/CatInKleins" class="hover:underline">
