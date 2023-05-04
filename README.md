@@ -1,3 +1,2 @@
-Wojapes be wojaping!
-
-Built using NextJS, RainbowKit, Hardhat, Wagmi and Typescript.
+# rainbow-dapp
+rainbow dapp
