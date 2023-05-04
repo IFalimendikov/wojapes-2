@@ -230,7 +230,7 @@ export default function Home() {
         <div class="bg-white">
           <h1 className="text-6xl">Welcum to Wojapes 2!</h1>
           <br></br>
-          <h2 class="text-2xl flex items-center justify-center text-purple-600">
+          <h2 class="text-2xl flex items-center justify-center text-blue-600">
             Current mint faze: Wojapes Holders Mint
           </h2>
           <br></br>
