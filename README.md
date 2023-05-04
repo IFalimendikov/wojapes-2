@@ -1,4 +1,6 @@
 <h1> Wopajes 2 DApp (made with Hardhat + Rainbow + wagmi + Next.js) </h1>
+![image](https://user-images.githubusercontent.com/113106548/236301033-0629428e-d3bf-418b-bf67-edcd912dea6c.png)
+
 
 <br> 
 
