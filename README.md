@@ -1,4 +1,4 @@
-<h1> Wopajes 2 DApp (made with Hardhat + Rainbow + wagmi + next.js) </h1>
+<h1> Wopajes 2 DApp (made with Hardhat + Rainbow + wagmi + Next.js) </h1>
 
 <br> 
 
