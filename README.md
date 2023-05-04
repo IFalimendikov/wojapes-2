@@ -1,9 +1,9 @@
-This DApp is made with Hardhat + Rainbow + WAGMI + NEXT.JS
+<h1> This DApp is made with Hardhat + Rainbow + WAGMI + NEXT.JS </h1>
 
 <br> 
 <br> 
 
-Backend (In hardhat folder)
+<h2> Backend (In hardhat folder). </h2>
 
 <br> 
 
