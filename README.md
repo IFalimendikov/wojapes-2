@@ -1,2 +1,3 @@
-# rainbow-dapp
-rainbow dapp
+This DApp is made with Hardhat + Rainbow + WAGMI + NEXT.JS
+
+<br> 
