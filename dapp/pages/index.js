@@ -21,7 +21,7 @@ export default function Home() {
   const [wlSalePeriod, setWLSalePeriod] = useState(false);
 
   const config = {
-    apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
+    apiKey: "wjjmnkDh0iZjVS5fKa3gewlZ9sUjSJ7Y",
     network: Network.ETH_SEPOLIA,
   };
 
@@ -38,13 +38,13 @@ export default function Home() {
   ///////////Set Mint Phase///////////////
 
   const { data: holderMintPhase } = useContractRead({
-    address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+    address: "0x4E86cC09576906f0Bb9f386868eF815B5f3616E1",
     abi: DumbWojapes2.abi,
     functionName: "holderMintActive",
   });
 
   const { data: WLMintPhase } = useContractRead({
-    address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+    address: "0x4E86cC09576906f0Bb9f386868eF815B5f3616E1",
     abi: DumbWojapes2.abi,
     functionName: "wlMintActive",
   });
@@ -60,7 +60,7 @@ export default function Home() {
 
   const { config: ownerMintConfig, error: ownerMintError } =
     usePrepareContractWrite({
-      address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+      address: "0x4E86cC09576906f0Bb9f386868eF815B5f3616E1",
       abi: DumbWojapes2.abi,
       functionName: "mintHolders",
       args: [IDs],
@@ -77,7 +77,7 @@ export default function Home() {
   } = useContractWrite(ownerMintConfig);
 
   const { config: wlMintConfig, error: wlMintError } = usePrepareContractWrite({
-    address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+    address: "0x4E86cC09576906f0Bb9f386868eF815B5f3616E1",
     abi: DumbWojapes2.abi,
     functionName: "mintWhitelist",
     args: [proofWL, "2"],
